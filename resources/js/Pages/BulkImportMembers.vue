@@ -15,7 +15,10 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
           <form @submit.prevent="submit">
             <div class="mt-4">
-              <jet-label for="importfile" value="Importfile" />
+              <jet-label
+                for="importfile"
+                value="Importfile"
+              />
               <jet-input
                 id="importfile"
                 type="file"
@@ -52,7 +55,7 @@ export default {
     JetButton,
   },
 
-  data() {
+  data () {
     return {
       form: this.$inertia.form({
         importfile: null,
@@ -60,10 +63,10 @@ export default {
     };
   },
   methods: {
-    submit() {
+    submit () {
       this.form.post(this.route("bulk-save-members"));
     },
-    getImportFile(e) {
+    getImportFile (e) {
       const file = e.target.files[0];
       this.form.importfile = file;
     },

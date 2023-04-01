@@ -15,30 +15,39 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
           <form @submit.prevent="submit">
             <div>
-              <jet-label for="email" value="Email" />
+              <jet-label
+                for="email"
+                value="Email"
+              />
               <jet-input
                 id="email"
+                v-model="form.email"
                 type="email"
                 class="mt-1 block w-full"
-                v-model="form.email"
                 required
                 autofocus
               />
             </div>
 
             <div class="mt-4">
-              <jet-label for="name" value="Name" />
+              <jet-label
+                for="name"
+                value="Name"
+              />
               <jet-input
                 id="name"
+                v-model="form.name"
                 type="text"
                 class="mt-1 block w-full"
-                v-model="form.name"
                 required
               />
             </div>
 
             <div class="mt-4">
-              <jet-label for="avatar" value="Avatar" />
+              <jet-label
+                for="avatar"
+                value="Avatar"
+              />
               <jet-input
                 id="avatar"
                 type="file"
@@ -48,7 +57,11 @@
             </div>
 
             <div class="mt-4">
-              <img v-if="url" :src="url" class="mt-4 h-60" />
+              <img
+                v-if="url"
+                :src="url"
+                class="mt-4 h-60"
+              />
             </div>
 
             <div class="mt-4">
@@ -70,8 +83,6 @@ import JetButton from "@/Jetstream/Button.vue";
 export default {
   name: "EditMember",
 
-  props: ["member"],
-
   components: {
     AppLayout,
     JetLabel,
@@ -79,7 +90,9 @@ export default {
     JetButton,
   },
 
-  data() {
+  props: ["member"],
+
+  data () {
     return {
       url: this.member.avatar,
       form: this.$inertia.form({
@@ -90,14 +103,14 @@ export default {
       }),
     };
   },
-  mounted() {
+  mounted () {
     console.log(this.member);
   },
   methods: {
-    submit() {
+    submit () {
       this.form.post(this.route("edit-member"));
     },
-    previewImage(e) {
+    previewImage (e) {
       const file = e.target.files[0];
       this.form.avatar = file;
       this.url = URL.createObjectURL(file);

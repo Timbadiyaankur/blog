@@ -21,10 +21,12 @@
               focus:ring-2
               ring-yellow-500
             "
-            >Add Member</a
-          >
+          >Add Member</a>
         </div>
-        <div class="mx-auto mr-0 ml-1" style="cursor: pointer">
+        <div
+          class="mx-auto mr-0 ml-1"
+          style="cursor: pointer"
+        >
           <a
             :href="route('export-members')"
             class="
@@ -38,10 +40,12 @@
               focus:ring-2
               ring-yellow-500
             "
-            >Export</a
-          >
+          >Export</a>
         </div>
-        <div class="mx-auto mr-0 ml-1" style="cursor: pointer">
+        <div
+          class="mx-auto mr-0 ml-1"
+          style="cursor: pointer"
+        >
           <a
             :href="route('import-members')"
             class="
@@ -55,8 +59,7 @@
               focus:ring-2
               ring-yellow-500
             "
-            >Import</a
-          >
+          >Import</a>
         </div>
       </div>
     </template>
@@ -64,24 +67,20 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-          <div
-            class="flex items-center justify-center font-sans overflow-hidden"
-          >
+          <div class="flex items-center justify-center font-sans overflow-hidden">
             <div class="w-full lg:w-5/6">
               <div class="bg-white shadow-md rounded my-6">
                 <!-- Table -->
                 <div class="p-3">
                   <div class="overflow-x-auto">
                     <table class="table-auto w-full">
-                      <thead
-                        class="
+                      <thead class="
                           text-xs
                           font-semibold
                           uppercase
                           text-gray-400
                           bg-gray-50
-                        "
-                      >
+                        ">
                         <tr>
                           <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">Name</div>
@@ -98,7 +97,10 @@
                         </tr>
                       </thead>
                       <tbody class="text-sm divide-y divide-gray-100">
-                        <tr v-for="member in members">
+                        <tr
+                          v-for="member in members"
+                          :key="member.id"
+                        >
                           <td class="p-2 whitespace-nowrap">
                             <div class="flex items-center">
                               <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
@@ -146,7 +148,7 @@
                                 focus:ring-2
                                 ring-yellow-500"
                               >
-                                  Edit
+                                Edit
                               </a>
 
                               <a
@@ -169,8 +171,9 @@
                                     text-white
                                     focus:ring-2
                                     ring-yellow-500
-                                ">
-                                  Delete
+                                "
+                              >
+                                Delete
                               </a>
                             </div>
                           </td>
@@ -197,7 +200,7 @@ export default {
   components: {
     AppLayout,
   },
-  data() {
+  data () {
     return {};
   },
   methods: {
