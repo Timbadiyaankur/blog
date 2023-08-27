@@ -1,5 +1,4 @@
 <template>
-
   <Head title="Reset Password" />
 
   <jet-authentication-card>
@@ -11,40 +10,17 @@
 
     <form @submit.prevent="submit">
       <div>
-        <jet-label
-          for="email"
-          value="Email"
-        />
-        <jet-input
-          id="email"
-          type="email"
-          class="mt-1 block w-full"
-          v-model="form.email"
-          required
-          autofocus
-        />
+        <jet-label for="email" value="Email" />
+        <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
       </div>
 
       <div class="mt-4">
-        <jet-label
-          for="password"
-          value="Password"
-        />
-        <jet-input
-          id="password"
-          type="password"
-          class="mt-1 block w-full"
-          v-model="form.password"
-          required
-          autocomplete="new-password"
-        />
+        <jet-label for="password" value="Password" />
+        <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
       </div>
 
       <div class="mt-4">
-        <jet-label
-          for="password_confirmation"
-          value="Confirm Password"
-        />
+        <jet-label for="password_confirmation" value="Confirm Password" />
         <jet-input
           id="password_confirmation"
           type="password"
@@ -56,20 +32,15 @@
       </div>
 
       <div class="flex items-center justify-end mt-4">
-        <jet-button
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
-        >
-          Reset Password
-        </jet-button>
+        <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Reset Password </jet-button>
       </div>
     </form>
   </jet-authentication-card>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import { Head } from '@inertiajs/inertia-vue3';
+import { defineComponent } from 'vue'
+import { Head } from '@inertiajs/inertia-vue3'
 import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
 import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
 import JetButton from '@/Jetstream/Button.vue'
@@ -85,7 +56,7 @@ export default defineComponent({
     JetButton,
     JetInput,
     JetLabel,
-    JetValidationErrors
+    JetValidationErrors,
   },
 
   props: {
@@ -93,23 +64,23 @@ export default defineComponent({
     token: String,
   },
 
-  data () {
+  data() {
     return {
       form: this.$inertia.form({
         token: this.token,
         email: this.email,
         password: '',
         password_confirmation: '',
-      })
+      }),
     }
   },
 
   methods: {
-    submit () {
+    submit() {
       this.form.post(this.route('password.update'), {
         onFinish: () => this.form.reset('password', 'password_confirmation'),
       })
-    }
-  }
+    },
+  },
 })
 </script>

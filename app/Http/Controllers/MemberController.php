@@ -67,7 +67,6 @@ class MemberController extends Controller
 
   public function ExportMembers()
   {
-
     $members = Member::all()->toArray();
     $file = new Export("xlsx");
     $file->fromArray(['id', 'email', 'name', 'avatar', 'created_at', 'updated_at']);
@@ -94,7 +93,7 @@ class MemberController extends Controller
           isset($row['email']) && $row['email'] != '' && $row['email'] != null &&
           isset($row['name']) && $row['name'] != '' && $row['name'] != null
         ) {
-          if ($this->isMemberExist($row['email']) === NULL) {
+          if ($this->isMemberExist($row['email']) === null) {
             $member = new Member;
             $member->email = $row['email'];
             $member->name = $row['name'];

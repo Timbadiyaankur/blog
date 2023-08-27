@@ -3,9 +3,7 @@
     <template #header>
       <div class="flex">
         <div class="mx-auto ml-0">
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Bulk Import Members
-          </h2>
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">Bulk Import Members</h2>
         </div>
       </div>
     </template>
@@ -15,10 +13,7 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
           <form @submit.prevent="submit">
             <div class="mt-4">
-              <jet-label
-                for="importfile"
-                value="Importfile"
-              />
+              <jet-label for="importfile" value="Importfile" />
               <jet-input
                 id="importfile"
                 type="file"
@@ -40,13 +35,13 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout.vue";
-import JetLabel from "@/Jetstream/Label.vue";
-import JetInput from "@/Jetstream/Input.vue";
-import JetButton from "@/Jetstream/Button.vue";
+import AppLayout from '@/Layouts/AppLayout.vue'
+import JetLabel from '@/Jetstream/Label.vue'
+import JetInput from '@/Jetstream/Input.vue'
+import JetButton from '@/Jetstream/Button.vue'
 
 export default {
-  name: "BulkImportMembers",
+  name: 'BulkImportMembers',
 
   components: {
     AppLayout,
@@ -55,21 +50,21 @@ export default {
     JetButton,
   },
 
-  data () {
+  data() {
     return {
       form: this.$inertia.form({
         importfile: null,
       }),
-    };
+    }
   },
   methods: {
-    submit () {
-      this.form.post(this.route("bulk-save-members"));
+    submit() {
+      this.form.post(this.route('bulk-save-members'))
     },
-    getImportFile (e) {
-      const file = e.target.files[0];
-      this.form.importfile = file;
+    getImportFile(e) {
+      const file = e.target.files[0]
+      this.form.importfile = file
     },
   },
-};
+}
 </script>

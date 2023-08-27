@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
     type: {
       type: String,
-      default: "button",
+      default: 'button',
     },
   },
-});
+})
 </script>

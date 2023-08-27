@@ -112,7 +112,7 @@ class Import
         ) {
           $val = trim($val);
           $this->headers[] = $val;
-        } else if ($tkey < sizeof($this->headers)) {
+        } elseif ($tkey < sizeof($this->headers)) {
           $this->values[] = $val;
         }
       }
@@ -129,7 +129,7 @@ class Import
             $this->is_failed = true;
             $this->fail_message = $data;
             break;
-          } else if ($error == self::STATUS_ERROR) {
+          } elseif ($error == self::STATUS_ERROR) {
             $this->error = true;
             $this->return[] = $data;
           }

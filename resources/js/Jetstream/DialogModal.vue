@@ -1,25 +1,17 @@
 <template>
-  <modal
-    :show="show"
-    :max-width="maxWidth"
-    :closeable="closeable"
-    @close="close"
-  >
+  <modal :show="show" :max-width="maxWidth" :closeable="closeable" @close="close">
     <div class="px-6 py-4">
       <div class="text-lg">
-        <slot name="title">
-        </slot>
+        <slot name="title"> </slot>
       </div>
 
       <div class="mt-4">
-        <slot name="content">
-        </slot>
+        <slot name="content"> </slot>
       </div>
     </div>
 
     <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
-      <slot name="footer">
-      </slot>
+      <slot name="footer"> </slot>
     </div>
   </modal>
 </template>
@@ -37,20 +29,20 @@ export default defineComponent({
 
   props: {
     show: {
-      default: false
+      default: false,
     },
     maxWidth: {
-      default: '2xl'
+      default: '2xl',
     },
     closeable: {
-      default: true
+      default: true,
     },
   },
 
   methods: {
-    close () {
+    close() {
       this.$emit('close')
     },
-  }
+  },
 })
 </script>

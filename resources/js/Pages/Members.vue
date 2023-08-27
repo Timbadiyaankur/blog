@@ -3,63 +3,28 @@
     <template #header>
       <div class="flex">
         <div class="mx-auto ml-0">
-          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Members
-          </h2>
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">Members</h2>
         </div>
         <div class="mx-auto mr-0">
           <a
             :href="route('add-member')"
-            class="
-              bg-gray-400
-              hover:bg-gray-500
-              transition-colors
-              rounded-[8px]
-              px-[15px]
-              py-[4px]
-              text-white
-              focus:ring-2
-              ring-yellow-500
-            "
-          >Add Member</a>
+            class="bg-gray-400 hover:bg-gray-500 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-yellow-500"
+            >Add Member</a
+          >
         </div>
-        <div
-          class="mx-auto mr-0 ml-1"
-          style="cursor: pointer"
-        >
+        <div class="mx-auto mr-0 ml-1" style="cursor: pointer">
           <a
             :href="route('export-members')"
-            class="
-              bg-green-400
-              hover:bg-green-500
-              transition-colors
-              rounded-[8px]
-              px-[15px]
-              py-[4px]
-              text-white
-              focus:ring-2
-              ring-yellow-500
-            "
-          >Export</a>
+            class="bg-green-400 hover:bg-green-500 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-yellow-500"
+            >Export</a
+          >
         </div>
-        <div
-          class="mx-auto mr-0 ml-1"
-          style="cursor: pointer"
-        >
+        <div class="mx-auto mr-0 ml-1" style="cursor: pointer">
           <a
             :href="route('import-members')"
-            class="
-              bg-blue-400
-              hover:bg-blue-500
-              transition-colors
-              rounded-[8px]
-              px-[15px]
-              py-[4px]
-              text-white
-              focus:ring-2
-              ring-yellow-500
-            "
-          >Import</a>
+            class="bg-blue-400 hover:bg-blue-500 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-yellow-500"
+            >Import</a
+          >
         </div>
       </div>
     </template>
@@ -74,13 +39,7 @@
                 <div class="p-3">
                   <div class="overflow-x-auto">
                     <table class="table-auto w-full">
-                      <thead class="
-                          text-xs
-                          font-semibold
-                          uppercase
-                          text-gray-400
-                          bg-gray-50
-                        ">
+                      <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                           <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">Name</div>
@@ -97,23 +56,12 @@
                         </tr>
                       </thead>
                       <tbody class="text-sm divide-y divide-gray-100">
-                        <tr
-                          v-for="member in members"
-                          :key="member.id"
-                        >
+                        <tr v-for="member in members" :key="member.id">
                           <td class="p-2 whitespace-nowrap">
                             <div class="flex items-center">
                               <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-                                <img
-                                  v-if="member.avatar"
-                                  class="w-10 h-10 rounded-full"
-                                  :src="member.avatar"
-                                />
-                                <img
-                                  v-else
-                                  class="w-10 h-10 rounded-full"
-                                  src="nullUser.png"
-                                />
+                                <img v-if="member.avatar" class="w-10 h-10 rounded-full" :src="member.avatar" />
+                                <img v-else class="w-10 h-10 rounded-full" src="nullUser.png" />
                               </div>
                               <div class="font-medium text-gray-800">
                                 {{ member.name }}
@@ -132,21 +80,8 @@
                             <div class="text-md text-center">
                               <a
                                 style="cursor: pointer"
-                                @click.prevent="
-                                  $inertia.get(
-                                    route('view-member', { id: member.id })
-                                  )
-                                "
-                                class="
-                                bg-green-400
-                                hover:bg-green-500
-                                transition-colors
-                                rounded-[8px]
-                                px-[15px]
-                                py-[4px]
-                                text-white
-                                focus:ring-2
-                                ring-yellow-500"
+                                @click.prevent="$inertia.get(route('view-member', { id: member.id }))"
+                                class="bg-green-400 hover:bg-green-500 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-yellow-500"
                               >
                                 Edit
                               </a>
@@ -157,21 +92,10 @@
                                   $inertia.post(
                                     this.route('delete-member', {
                                       id: member.id,
-                                    })
+                                    }),
                                   )
                                 "
-                                class="
-                                    ml-1
-                                    bg-red-400
-                                    hover:bg-red-500
-                                    transition-colors
-                                    rounded-[8px]
-                                    px-[15px]
-                                    py-[4px]
-                                    text-white
-                                    focus:ring-2
-                                    ring-yellow-500
-                                "
+                                class="ml-1 bg-red-400 hover:bg-red-500 transition-colors rounded-[8px] px-[15px] py-[4px] text-white focus:ring-2 ring-yellow-500"
                               >
                                 Delete
                               </a>
@@ -192,21 +116,21 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout.vue";
+import AppLayout from '@/Layouts/AppLayout.vue'
 
 export default {
-  name: "Members",
-  props: ["members"],
+  name: 'Members',
+  props: ['members'],
   components: {
     AppLayout,
   },
-  data () {
-    return {};
+  data() {
+    return {}
   },
   methods: {
     format_date: function (date) {
-      return new Date(date).toLocaleDateString();
+      return new Date(date).toLocaleDateString()
     },
   },
-};
+}
 </script>

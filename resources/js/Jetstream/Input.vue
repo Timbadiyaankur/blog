@@ -4,7 +4,7 @@
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     ref="input"
-  >
+  />
 </template>
 
 <script>
@@ -16,9 +16,9 @@ export default defineComponent({
   emits: ['update:modelValue'],
 
   methods: {
-    focus () {
+    focus() {
       this.$refs.input.focus()
-    }
-  }
+    },
+  },
 })
 </script>

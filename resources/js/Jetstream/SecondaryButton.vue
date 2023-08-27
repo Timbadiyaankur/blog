@@ -16,6 +16,6 @@ export default defineComponent({
       type: String,
       default: 'button',
     },
-  }
+  },
 })
 </script>
